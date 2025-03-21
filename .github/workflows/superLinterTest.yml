@@ -1,0 +1,16 @@
+name: Super Linter for HTML
+
+on: [pull_request]
+
+jobs:
+  lint-html:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Run Super Linter
+        uses: github/super-linter@v5
+        env:
+          VALIDATE_HTML: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
